@@ -1,0 +1,4 @@
+{"tool": "rs_vlm", "model_id": "earthdial-4b-rgb-4bit", "status": "ok",
+ "text": "New structures have appeared along the edges of the lake, which looks smaller than before.",
+ "detections": [], "masks": {}, "metrics": {}, "score": 0.71,
+ "warnings": [], "runtime_s": 2.1, "source": "fake"}

@@ -1,0 +1,11 @@
+tool: change_diff
+owner: P1
+impl: satquery.models.change_map:ChangeDiff
+model_id: rgb-difference-ksigma
+does: [CHANGE_DESCRIBE, CHANGE_VQA, CHANGE_GROUNDING]
+needs: [optical-MX, optical-PAN, optical-RGB]
+gives: [change_mask]
+native_pixel_m: null
+params:
+  k_sigma: {type: float, default: 2.5, min: 1.5, max: 4.0}
+fallback: null

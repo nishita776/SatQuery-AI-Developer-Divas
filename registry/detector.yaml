@@ -1,0 +1,16 @@
+tool: detector
+owner: P1
+impl: satquery.models.detector:Detector
+model_id: IDEA-Research/grounding-dino-base
+does: [GROUNDING, COUNT, CHANGE_GROUNDING, CHANGE_VQA]
+needs: [optical-MX, optical-PAN, optical-RGB]
+gives: [detections, count]
+native_pixel_m: [0.3, 1.0]
+params:
+  prompt:         {type: str}
+  box_threshold:  {type: float, default: 0.35, min: 0.25, max: 0.50}
+  text_threshold: {type: float, default: 0.25, min: 0.20, max: 0.40}
+  nms_iou:        {type: float, default: 0.50, min: 0.30, max: 0.70}
+  max_detections: {type: int,   default: 500,  min: 1,    max: 2000}
+  tile_px:        {type: enum,  default: 1024, choices: [640, 800, 1024]}
+fallback: null

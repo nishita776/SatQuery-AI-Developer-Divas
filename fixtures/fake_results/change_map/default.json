@@ -1,0 +1,23 @@
+{
+  "tool": "change_map",
+  "model_id": "ChangeFormer-LEVIR-CD",
+  "status": "ok",
+  "text": null,
+  "detections": [],
+  "masks": {
+    "change": {
+      "path": "change.tif",
+      "meaning": "change",
+      "pixels": 864,
+      "area_m2": 3456.0
+    }
+  },
+  "metrics": {
+    "changed_pixels": 864.0,
+    "changed_area_m2": 3456.0
+  },
+  "score": 0.78,
+  "warnings": [],
+  "runtime_s": 2.6,
+  "source": "fake"
+}

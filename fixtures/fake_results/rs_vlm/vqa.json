@@ -1,0 +1,4 @@
+{"tool": "rs_vlm", "model_id": "earthdial-4b-rgb-4bit", "status": "ok",
+ "text": "The main land cover is vegetation, with a water body in the south.",
+ "detections": [], "masks": {}, "metrics": {}, "score": 0.68,
+ "warnings": [], "runtime_s": 1.8, "source": "fake"}

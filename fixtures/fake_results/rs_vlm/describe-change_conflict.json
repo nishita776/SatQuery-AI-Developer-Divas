@@ -1,0 +1,4 @@
+{"tool": "rs_vlm", "model_id": "earthdial-4b-rgb-4bit", "status": "ok",
+ "text": "No significant change is visible between the two images.",
+ "detections": [], "masks": {}, "metrics": {}, "score": 0.64,
+ "warnings": [], "runtime_s": 2.0, "source": "fake"}

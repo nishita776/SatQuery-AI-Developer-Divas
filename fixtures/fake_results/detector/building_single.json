@@ -1,0 +1,86 @@
+{
+  "tool": "detector",
+  "model_id": "IDEA-Research/grounding-dino-base",
+  "status": "ok",
+  "text": null,
+  "detections": [
+    {
+      "label": "building",
+      "score": 0.66,
+      "bbox_px": [
+        100,
+        100,
+        112,
+        112
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.71,
+      "bbox_px": [
+        140,
+        358,
+        152,
+        370
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.68,
+      "bbox_px": [
+        140,
+        372,
+        152,
+        384
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.64,
+      "bbox_px": [
+        140,
+        386,
+        152,
+        398
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.69,
+      "bbox_px": [
+        360,
+        358,
+        372,
+        370
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.6,
+      "bbox_px": [
+        360,
+        372,
+        372,
+        384
+      ]
+    },
+    {
+      "label": "building",
+      "score": 0.57,
+      "bbox_px": [
+        360,
+        386,
+        372,
+        398
+      ]
+    }
+  ],
+  "masks": {},
+  "metrics": {
+    "count": 7.0
+  },
+  "score": 0.65,
+  "warnings": [],
+  "runtime_s": 0.9,
+  "source": "fake"
+}

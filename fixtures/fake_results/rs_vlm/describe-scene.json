@@ -1,0 +1,4 @@
+{"tool": "rs_vlm", "model_id": "earthdial-4b-rgb-4bit", "status": "ok",
+ "text": "A vegetated landscape with an elliptical lake in the south and scattered buildings.",
+ "detections": [], "masks": {}, "metrics": {}, "score": 0.66,
+ "warnings": [], "runtime_s": 1.7, "source": "fake"}

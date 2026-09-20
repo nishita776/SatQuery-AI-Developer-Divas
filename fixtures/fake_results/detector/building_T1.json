@@ -1,0 +1,26 @@
+{
+  "tool": "detector",
+  "model_id": "IDEA-Research/grounding-dino-base",
+  "status": "ok",
+  "text": null,
+  "detections": [
+    {
+      "label": "building",
+      "score": 0.66,
+      "bbox_px": [
+        100,
+        100,
+        112,
+        112
+      ]
+    }
+  ],
+  "masks": {},
+  "metrics": {
+    "count": 1.0
+  },
+  "score": 0.66,
+  "warnings": [],
+  "runtime_s": 0.9,
+  "source": "fake"
+}

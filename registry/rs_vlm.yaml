@@ -1,0 +1,13 @@
+tool: rs_vlm
+owner: P1
+impl: satquery.models.rs_vlm:RSVLM
+model_id: earthdial-4b-rgb-4bit     # becomes earthdial-4b-rgb-4bit+lora-v1 after ML-08
+does: [VQA, CAPTION, CHANGE_DESCRIBE, CHANGE_VQA, CHANGE_GROUNDING, OPTICAL_SAR]
+needs: [optical-MX, optical-PAN, optical-RGB]
+gives: [text]
+native_pixel_m: [0.3, 10.0]
+params:
+  mode:           {type: enum, default: vqa, choices: [vqa, caption, describe_change, describe_scene]}
+  question:       {type: str, default: ""}
+  max_new_tokens: {type: int, default: 64, min: 16, max: 256}
+fallback: null
