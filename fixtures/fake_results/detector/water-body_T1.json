@@ -1,0 +1,26 @@
+{
+  "tool": "detector",
+  "model_id": "IDEA-Research/grounding-dino-base",
+  "status": "ok",
+  "text": null,
+  "detections": [
+    {
+      "label": "water body",
+      "score": 0.62,
+      "bbox_px": [
+        136,
+        310,
+        376,
+        450
+      ]
+    }
+  ],
+  "masks": {},
+  "metrics": {
+    "count": 1.0
+  },
+  "score": 0.62,
+  "warnings": [],
+  "runtime_s": 0.9,
+  "source": "fake"
+}

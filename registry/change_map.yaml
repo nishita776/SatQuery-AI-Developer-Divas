@@ -1,0 +1,11 @@
+tool: change_map
+owner: P1
+impl: satquery.models.change_map:ChangeMap
+model_id: ChangeFormer-LEVIR-CD
+does: [CHANGE_DESCRIBE, CHANGE_VQA, CHANGE_GROUNDING]
+needs: [optical-MX, optical-PAN, optical-RGB]
+gives: [change_mask, change_prob]
+native_pixel_m: [0.3, 1.0]
+params:
+  threshold: {type: float, default: 0.5, min: 0.3, max: 0.7}
+fallback: change_diff

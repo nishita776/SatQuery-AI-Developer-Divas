@@ -1,0 +1,23 @@
+{
+  "tool": "change_diff",
+  "model_id": "rgb-difference-ksigma",
+  "status": "ok",
+  "text": null,
+  "detections": [],
+  "masks": {
+    "change": {
+      "path": "change.tif",
+      "meaning": "change",
+      "pixels": 9111,
+      "area_m2": 36444.0
+    }
+  },
+  "metrics": {
+    "changed_pixels": 9111.0,
+    "changed_area_m2": 36444.0
+  },
+  "score": null,
+  "warnings": [],
+  "runtime_s": 0.2,
+  "source": "fake"
+}
