@@ -1,0 +1,39 @@
+{
+  "tool": "select_region",
+  "model_id": "rule-based-region-select",
+  "status": "ok",
+  "text": null,
+  "detections": [
+    {
+      "label": "water body",
+      "score": 0.62,
+      "bbox_px": [
+        136,
+        310,
+        377,
+        451
+      ]
+    }
+  ],
+  "masks": {
+    "region": {
+      "path": "region.tif",
+      "meaning": "region",
+      "pixels": 26353,
+      "area_m2": 105412.0
+    },
+    "buffered": {
+      "path": "buffered.tif",
+      "meaning": "buffered",
+      "pixels": 43385,
+      "area_m2": 173540.0
+    }
+  },
+  "metrics": {
+    "region_area_m2": 105412.0
+  },
+  "score": null,
+  "warnings": [],
+  "runtime_s": 0.05,
+  "source": "fake"
+}

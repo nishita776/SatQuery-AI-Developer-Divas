@@ -1,0 +1,15 @@
+# Replace the handles with your real GitHub usernames.
+# Shared: all three must approve (branch protection: require CODEOWNER review)
+/satquery/contracts/        @p1-handle @p2-handle @p3-handle
+/satquery/common/           @p1-handle @p2-handle @p3-handle
+/tests/contract/            @p1-handle @p2-handle @p3-handle
+/tests/e2e/                 @p1-handle @p2-handle @p3-handle
+/fixtures/make_fixtures.py  @p1-handle @p2-handle @p3-handle
+/pyproject.toml             @p1-handle @p2-handle @p3-handle
+# P1: models
+/satquery/models/ /satquery/scale/ /training/ /eval/ /notebooks/ /cache/  @p1-handle
+# P2: geo engine + agent
+/satquery/ingest/ /satquery/sar/ /satquery/physics/ /satquery/agent/ /satquery/fusion/ /tests/p2/  @p2-handle
+/data/dem/ /data/hand/      @p2-handle
+# P3: product
+/server/ /web/ /satquery/render/ /demo/ /tests/p3/  @p3-handle

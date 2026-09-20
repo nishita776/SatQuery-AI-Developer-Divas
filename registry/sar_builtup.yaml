@@ -1,0 +1,12 @@
+tool: sar_builtup
+owner: P2
+impl: satquery.sar.tools:SarBuiltup
+model_id: sar-double-bounce-percentile
+does: [OPTICAL_SAR]
+needs: [sar]
+gives: [builtup_mask]
+native_pixel_m: null
+params:
+  bright_pct: {type: float, default: 98, min: 95, max: 99.5}
+  open_px: {type: int, default: 2, min: 1, max: 5}
+fallback: null

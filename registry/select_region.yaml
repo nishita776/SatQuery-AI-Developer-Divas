@@ -1,0 +1,13 @@
+tool: select_region
+owner: P2
+impl: satquery.physics.tools:SelectRegion
+model_id: rule-based-region-select
+does: [GROUNDING, CHANGE_GROUNDING]
+needs: [optical-MX, optical-PAN, optical-RGB]
+gives: [region_mask, buffered_mask]
+native_pixel_m: null
+params:
+  hint: {type: enum, default: best, choices: [none, north, south, east, west, centre, largest, best]}
+  buffer_m: {type: float, default: 50, min: 0, max: 500}
+  use_water: {type: bool, default: false}
+fallback: null

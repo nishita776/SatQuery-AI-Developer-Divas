@@ -1,0 +1,24 @@
+{
+  "tool": "water_mask",
+  "model_id": "ndwi-otsu",
+  "status": "ok",
+  "text": null,
+  "detections": [],
+  "masks": {
+    "water": {
+      "path": "water_optical.tif",
+      "meaning": "water",
+      "pixels": 8688,
+      "area_m2": 34752.0
+    }
+  },
+  "metrics": {
+    "water_area_m2": 34752.0,
+    "threshold": 0.027,
+    "excluded_cloud_m2": 373464.0
+  },
+  "score": null,
+  "warnings": [],
+  "runtime_s": 0.2,
+  "source": "fake"
+}

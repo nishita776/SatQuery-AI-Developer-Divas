@@ -1,0 +1,24 @@
+{
+  "tool": "sar_builtup",
+  "model_id": "sar-double-bounce-percentile",
+  "status": "ok",
+  "text": null,
+  "detections": [],
+  "masks": {
+    "builtup": {
+      "path": "builtup.tif",
+      "meaning": "builtup",
+      "pixels": 1008,
+      "area_m2": 4032.0
+    }
+  },
+  "metrics": {
+    "builtup_area_m2": 4032.0
+  },
+  "score": null,
+  "warnings": [
+    "band=X"
+  ],
+  "runtime_s": 0.1,
+  "source": "fake"
+}

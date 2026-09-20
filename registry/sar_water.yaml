@@ -1,0 +1,13 @@
+tool: sar_water
+owner: P2
+impl: satquery.sar.tools:SarWater
+model_id: nrsc-tile-otsu+hand
+does: [OPTICAL_SAR]
+needs: [sar]
+gives: [water_mask]
+native_pixel_m: null
+params:
+  tile_px: {type: int, default: 256, min: 128, max: 512}
+  hand_max_m: {type: float, default: 15, min: 5, max: 20}
+  use_hand: {type: bool, default: true}
+fallback: null

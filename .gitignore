@@ -1,0 +1,17 @@
+runs/
+data/dem/*
+data/hand/*
+!data/dem/.gitkeep
+!data/hand/.gitkeep
+*.zip
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+web/node_modules/
+*.aux.xml
+venv/ 
+

@@ -1,0 +1,56 @@
+"""Data contracts shared by all three parts. Changes need a contract/... PR approved by all three."""
+
+from .context import JobContext
+from .core import (
+    CONTRACT_VERSION,
+    Conflict,
+    Detection,
+    FusionResult,
+    ImageInfo,
+    InputMode,
+    JobResult,
+    Layer,
+    MaskRef,
+    Modality,
+    PairInfo,
+    ParamSpec,
+    Role,
+    RunMode,
+    SensorProfile,
+    TaskType,
+    ToolCall,
+    ToolCard,
+    ToolResult,
+    Trace,
+    TraceStep,
+)
+from .errors import ErrorCode, ToolError
+from .tools import Tool
+
+__all__ = [
+    "CONTRACT_VERSION",
+    "Conflict",
+    "Detection",
+    "ErrorCode",
+    "FusionResult",
+    "ImageInfo",
+    "InputMode",
+    "JobContext",
+    "JobResult",
+    "Layer",
+    "MaskRef",
+    "Modality",
+    "PairInfo",
+    "ParamSpec",
+    "Role",
+    "RunMode",
+    "SensorProfile",
+    "TaskType",
+    "Tool",
+    "ToolCall",
+    "ToolCard",
+    "ToolError",
+    "ToolResult",
+    "Trace",
+    "TraceStep",
+]

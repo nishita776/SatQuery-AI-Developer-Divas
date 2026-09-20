@@ -1,0 +1,147 @@
+{
+  "job_id": "STORY",
+  "status": "done",
+  "message": null,
+  "fusion": {
+    "answer": "The image is mostly agricultural land and vegetation, with a lake in the south.",
+    "model_description": null,
+    "facts": {
+      "ndvi_mean": 0.627
+    },
+    "confidence": 0.92,
+    "confidence_label": "High",
+    "reasons": [
+      "answer from the adapted language model",
+      "NDVI mean 0.627 supports vegetation",
+      "cloud 0%"
+    ],
+    "conflicts": [],
+    "display_masks": {
+      "ndvi": {
+        "path": "fusion/ndvi.tif",
+        "meaning": "ndvi",
+        "pixels": 235634,
+        "area_m2": 942536.0
+      }
+    },
+    "display_detections": {}
+  },
+  "trace": {
+    "job_id": "STORY",
+    "question": "What is the main land cover in this image?",
+    "parsed_query": {
+      "task": "VQA",
+      "target": "object",
+      "place_hint": "none",
+      "looking_for": "object",
+      "question": "What is the main land cover in this image?"
+    },
+    "task": "VQA",
+    "sensor_profile": {
+      "contract_version": "1.0",
+      "input_mode": "geotiff",
+      "images": [
+        {
+          "image_id": "img_0",
+          "role": "single",
+          "file": "single.tif",
+          "sha1": "ab1269d741134c0c1013c27c9dc1c408e1e76918",
+          "prepared_path": "ingest/img_0.tif",
+          "rgb8_path": "ingest/img_0_rgb8.tif",
+          "sensor": "Cartosat-2S",
+          "modality": "optical-MX",
+          "bands": [
+            "blue",
+            "green",
+            "red",
+            "nir"
+          ],
+          "pixel_m": 2.0,
+          "width": 512,
+          "height": 512,
+          "date": "2025-02-08",
+          "crs": "EPSG:32643",
+          "sar_band": null,
+          "polarisation": [],
+          "cloud_pct": 0.0,
+          "cloud_mask_path": null,
+          "hand_mask_path": null
+        }
+      ],
+      "pair": null,
+      "can_compute": {
+        "NDVI": true,
+        "NDWI": true,
+        "NDBI": false
+      },
+      "notes": [
+        "NDBI skipped: no SWIR band on Cartosat-2S"
+      ]
+    },
+    "plan": [
+      {
+        "step_id": "s1",
+        "tool": "rs_vlm",
+        "inputs": {
+          "image": "single"
+        },
+        "params": {
+          "mode": "vqa",
+          "question": "What is the main land cover in this image?",
+          "max_new_tokens": 64
+        }
+      },
+      {
+        "step_id": "s2",
+        "tool": "index_mask",
+        "inputs": {
+          "image": "single"
+        },
+        "params": {
+          "index": "NDVI",
+          "exclude_cloud": true
+        }
+      }
+    ],
+    "steps": [
+      {
+        "step_id": "s1",
+        "tool": "rs_vlm",
+        "model_id": "geochat-7b-4bit+lora-v1",
+        "params": {
+          "mode": "vqa",
+          "question": "What is the main land cover in this image?",
+          "max_new_tokens": 64
+        },
+        "status": "ok",
+        "summary": "answered the question",
+        "runtime_s": 2.2,
+        "source": "fake"
+      },
+      {
+        "step_id": "s2",
+        "tool": "index_mask",
+        "model_id": "spectral-index-otsu",
+        "params": {
+          "index": "NDVI",
+          "exclude_cloud": true
+        },
+        "status": "ok",
+        "summary": "NDVI mean 0.627",
+        "runtime_s": 0.2,
+        "source": "fake"
+      }
+    ],
+    "skipped": [
+      "NDBI skipped: no SWIR band on Cartosat-2S"
+    ],
+    "adapter_id": "lora-v1",
+    "versions": {
+      "git": "stub",
+      "contract": "1.0",
+      "rs_vlm": "geochat-7b-4bit+lora-v1"
+    }
+  },
+  "layers": [],
+  "downloads": {}
+}

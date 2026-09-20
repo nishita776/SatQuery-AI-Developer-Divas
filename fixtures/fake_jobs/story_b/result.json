@@ -1,0 +1,279 @@
+{
+  "job_id": "STORY",
+  "status": "done",
+  "message": null,
+  "fusion": {
+    "answer": "Water covers about 69,004 m² and built-up areas about 4,032 m². Optical and SAR agree on water (IoU 1.00). 36% of the area was answered from radar alone because of cloud.",
+    "model_description": "A lake in the south, farmland and a few buildings; the north-west is covered by cloud.",
+    "facts": {
+      "water_sar_m2": 69004.0,
+      "water_optical_m2": 34752.0,
+      "water_iou": 1.0,
+      "builtup_m2": 4032.0,
+      "radar_only_pct": 35.6
+    },
+    "confidence": 0.9,
+    "confidence_label": "High",
+    "reasons": [
+      "optical and SAR water IoU 1.00",
+      "36% answered from radar only",
+      "cloud 36%"
+    ],
+    "conflicts": [],
+    "display_masks": {
+      "water_sar": {
+        "path": "fusion/water_sar.tif",
+        "meaning": "water",
+        "pixels": 17251,
+        "area_m2": 69004.0
+      },
+      "water_optical": {
+        "path": "fusion/water_optical.tif",
+        "meaning": "water",
+        "pixels": 8688,
+        "area_m2": 34752.0
+      },
+      "builtup": {
+        "path": "fusion/builtup.tif",
+        "meaning": "builtup",
+        "pixels": 1008,
+        "area_m2": 4032.0
+      },
+      "radar_only": {
+        "path": "fusion/radar_only.tif",
+        "meaning": "radar_only",
+        "pixels": 93366,
+        "area_m2": 373464.0
+      },
+      "cloud": {
+        "path": "fusion/cloud.tif",
+        "meaning": "cloud",
+        "pixels": 93366,
+        "area_m2": 373464.0
+      }
+    },
+    "display_detections": {}
+  },
+  "trace": {
+    "job_id": "STORY",
+    "question": "Use both images to identify built-up and water-covered areas.",
+    "parsed_query": {
+      "task": "OPTICAL_SAR",
+      "target": "object",
+      "place_hint": "none",
+      "looking_for": "object",
+      "question": "Use both images to identify built-up and water-covered areas."
+    },
+    "task": "OPTICAL_SAR",
+    "sensor_profile": {
+      "contract_version": "1.0",
+      "input_mode": "geotiff",
+      "images": [
+        {
+          "image_id": "img_0",
+          "role": "optical",
+          "file": "optical_cloudy.tif",
+          "sha1": "e1193cf980a4e9174cd858d0d3c91a833532e990",
+          "prepared_path": "ingest/img_0.tif",
+          "rgb8_path": "ingest/img_0_rgb8.tif",
+          "sensor": "Cartosat-2S",
+          "modality": "optical-MX",
+          "bands": [
+            "blue",
+            "green",
+            "red",
+            "nir"
+          ],
+          "pixel_m": 2.0,
+          "width": 512,
+          "height": 512,
+          "date": "2025-02-06",
+          "crs": "EPSG:32643",
+          "sar_band": null,
+          "polarisation": [],
+          "cloud_pct": 35.6,
+          "cloud_mask_path": "ingest/cloud_img_0.tif",
+          "hand_mask_path": null
+        },
+        {
+          "image_id": "img_1",
+          "role": "sar",
+          "file": "sar.tif",
+          "sha1": "356e86df87e8413e1996d814be0181842a7d4b84",
+          "prepared_path": "ingest/img_1.tif",
+          "rgb8_path": "ingest/img_1_rgb8.tif",
+          "sensor": "RISAT-2B",
+          "modality": "sar",
+          "bands": [
+            "sigma0_hh"
+          ],
+          "pixel_m": 2.0,
+          "width": 512,
+          "height": 512,
+          "date": "2025-02-06",
+          "crs": "EPSG:32643",
+          "sar_band": "X",
+          "polarisation": [
+            "HH"
+          ],
+          "cloud_pct": null,
+          "cloud_mask_path": null,
+          "hand_mask_path": "ingest/hand_img_1.tif"
+        }
+      ],
+      "pair": {
+        "kind": "cross-modal",
+        "overlap_pct": 100.0,
+        "same_crs": true,
+        "ref_image": "img_0"
+      },
+      "can_compute": {
+        "NDVI": true,
+        "NDWI": true,
+        "NDBI": false
+      },
+      "notes": [
+        "NDBI skipped: no SWIR band on Cartosat-2S"
+      ]
+    },
+    "plan": [
+      {
+        "step_id": "s1",
+        "tool": "sar_water",
+        "inputs": {
+          "image": "sar"
+        },
+        "params": {
+          "tile_px": 256,
+          "hand_max_m": 15.0,
+          "use_hand": true
+        }
+      },
+      {
+        "step_id": "s2",
+        "tool": "sar_builtup",
+        "inputs": {
+          "image": "sar"
+        },
+        "params": {
+          "bright_pct": 98.0,
+          "open_px": 2
+        }
+      },
+      {
+        "step_id": "s3",
+        "tool": "water_mask",
+        "inputs": {
+          "image": "optical"
+        },
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        }
+      },
+      {
+        "step_id": "s4",
+        "tool": "index_mask",
+        "inputs": {
+          "image": "optical"
+        },
+        "params": {
+          "index": "NDVI",
+          "exclude_cloud": true
+        }
+      },
+      {
+        "step_id": "s5",
+        "tool": "rs_vlm",
+        "inputs": {
+          "image": "optical"
+        },
+        "params": {
+          "mode": "describe_scene",
+          "question": "Use both images to identify built-up and water-covered areas.",
+          "max_new_tokens": 64
+        }
+      }
+    ],
+    "steps": [
+      {
+        "step_id": "s1",
+        "tool": "sar_water",
+        "model_id": "nrsc-tile-otsu+hand",
+        "params": {
+          "tile_px": 256,
+          "hand_max_m": 15.0,
+          "use_hand": true
+        },
+        "status": "ok",
+        "summary": "water 69,004 m², threshold -15.0 dB, HAND <= 15 m",
+        "runtime_s": 0.6,
+        "source": "fake"
+      },
+      {
+        "step_id": "s2",
+        "tool": "sar_builtup",
+        "model_id": "sar-double-bounce-percentile",
+        "params": {
+          "bright_pct": 98.0,
+          "open_px": 2
+        },
+        "status": "ok",
+        "summary": "built-up 4,032 m²",
+        "runtime_s": 0.3,
+        "source": "fake"
+      },
+      {
+        "step_id": "s3",
+        "tool": "water_mask",
+        "model_id": "ndwi-otsu",
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        },
+        "status": "ok",
+        "summary": "water 34,752 m² on clear-sky pixels",
+        "runtime_s": 0.3,
+        "source": "fake"
+      },
+      {
+        "step_id": "s4",
+        "tool": "index_mask",
+        "model_id": "spectral-index-otsu",
+        "params": {
+          "index": "NDVI",
+          "exclude_cloud": true
+        },
+        "status": "ok",
+        "summary": "NDVI mean 0.63",
+        "runtime_s": 0.2,
+        "source": "fake"
+      },
+      {
+        "step_id": "s5",
+        "tool": "rs_vlm",
+        "model_id": "geochat-7b-4bit+lora-v1",
+        "params": {
+          "mode": "describe_scene",
+          "question": "Use both images to identify built-up and water-covered areas.",
+          "max_new_tokens": 64
+        },
+        "status": "ok",
+        "summary": "described the scene",
+        "runtime_s": 2.8,
+        "source": "fake"
+      }
+    ],
+    "skipped": [
+      "NDBI skipped: no SWIR band on Cartosat-2S"
+    ],
+    "adapter_id": "lora-v1",
+    "versions": {
+      "git": "stub",
+      "contract": "1.0",
+      "rs_vlm": "geochat-7b-4bit+lora-v1"
+    }
+  },
+  "layers": [],
+  "downloads": {}
+}

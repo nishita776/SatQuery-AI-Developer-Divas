@@ -1,0 +1,12 @@
+tool: water_mask
+owner: P2
+impl: satquery.physics.tools:WaterMask
+model_id: ndwi-otsu
+does: [GROUNDING, CHANGE_DESCRIBE, CHANGE_VQA, CHANGE_GROUNDING, OPTICAL_SAR]
+needs: [optical-MX]
+gives: [water_mask]
+native_pixel_m: null
+params:
+  index: {type: enum, default: NDWI, choices: [NDWI]}
+  exclude_cloud: {type: bool, default: true}
+fallback: null

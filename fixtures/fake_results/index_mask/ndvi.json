@@ -1,0 +1,23 @@
+{
+  "tool": "index_mask",
+  "model_id": "spectral-index-otsu",
+  "status": "ok",
+  "text": null,
+  "detections": [],
+  "masks": {
+    "ndvi": {
+      "path": "ndvi.tif",
+      "meaning": "ndvi",
+      "pixels": 235634,
+      "area_m2": 942536.0
+    }
+  },
+  "metrics": {
+    "mean_index": 0.627,
+    "area_m2": 942536.0
+  },
+  "score": null,
+  "warnings": [],
+  "runtime_s": 0.1,
+  "source": "fake"
+}

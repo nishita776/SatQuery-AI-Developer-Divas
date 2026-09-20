@@ -1,0 +1,524 @@
+{
+  "job_id": "STORY",
+  "status": "done",
+  "message": null,
+  "fusion": {
+    "answer": "Yes. 6 new structures have appeared within 50 m of the water body. The water surface shrank by about 36,392 m² (35%).",
+    "model_description": "New structures are visible along the southern shore, where the water has receded.",
+    "facts": {
+      "water_T1_m2": 105412.0,
+      "water_T2_m2": 69020.0,
+      "water_loss_m2": 36392.0,
+      "water_loss_pct": 35.0,
+      "buildings_T1": 1.0,
+      "buildings_T2": 7.0,
+      "new_buildings": 6.0,
+      "changed_area_m2": 5632.0
+    },
+    "confidence": 0.93,
+    "confidence_label": "High",
+    "reasons": [
+      "4 sources agree",
+      "6 of 6 new buildings fall inside the changed area",
+      "cloud 0%"
+    ],
+    "conflicts": [],
+    "display_masks": {
+      "water_T1": {
+        "path": "fusion/water_T1.tif",
+        "meaning": "water",
+        "pixels": 26353,
+        "area_m2": 105412.0
+      },
+      "water_T2": {
+        "path": "fusion/water_T2.tif",
+        "meaning": "water",
+        "pixels": 17255,
+        "area_m2": 69020.0
+      },
+      "water_loss": {
+        "path": "fusion/water_loss.tif",
+        "meaning": "water_loss",
+        "pixels": 9098,
+        "area_m2": 36392.0
+      },
+      "change": {
+        "path": "fusion/change.tif",
+        "meaning": "change",
+        "pixels": 1408,
+        "area_m2": 5632.0
+      },
+      "region": {
+        "path": "fusion/region.tif",
+        "meaning": "region",
+        "pixels": 26353,
+        "area_m2": 105412.0
+      }
+    },
+    "display_detections": {
+      "buildings_new": [
+        {
+          "label": "building",
+          "score": 0.68,
+          "bbox_px": [
+            140,
+            358,
+            152,
+            370
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.74,
+          "bbox_px": [
+            140,
+            372,
+            152,
+            384
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.69,
+          "bbox_px": [
+            140,
+            386,
+            152,
+            398
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.72,
+          "bbox_px": [
+            360,
+            358,
+            372,
+            370
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.66,
+          "bbox_px": [
+            360,
+            372,
+            372,
+            384
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.77,
+          "bbox_px": [
+            360,
+            386,
+            372,
+            398
+          ]
+        }
+      ],
+      "buildings_T2": [
+        {
+          "label": "building",
+          "score": 0.71,
+          "bbox_px": [
+            100,
+            100,
+            112,
+            112
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.68,
+          "bbox_px": [
+            140,
+            358,
+            152,
+            370
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.74,
+          "bbox_px": [
+            140,
+            372,
+            152,
+            384
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.69,
+          "bbox_px": [
+            140,
+            386,
+            152,
+            398
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.72,
+          "bbox_px": [
+            360,
+            358,
+            372,
+            370
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.66,
+          "bbox_px": [
+            360,
+            372,
+            372,
+            384
+          ]
+        },
+        {
+          "label": "building",
+          "score": 0.77,
+          "bbox_px": [
+            360,
+            386,
+            372,
+            398
+          ]
+        }
+      ]
+    }
+  },
+  "trace": {
+    "job_id": "STORY",
+    "question": "Has anything been built on the southern lake shore since last year?",
+    "parsed_query": {
+      "task": "CHANGE_GROUNDING",
+      "target": "water body",
+      "place_hint": "south",
+      "looking_for": "building",
+      "question": "Has anything been built on the southern lake shore since last year?"
+    },
+    "task": "CHANGE_GROUNDING",
+    "sensor_profile": {
+      "contract_version": "1.0",
+      "input_mode": "geotiff",
+      "images": [
+        {
+          "image_id": "img_0",
+          "role": "T1",
+          "file": "pair_T1.tif",
+          "sha1": "a2ec7502d956a7795177f38d4ace08c8f1c941fb",
+          "prepared_path": "ingest/img_0.tif",
+          "rgb8_path": "ingest/img_0_rgb8.tif",
+          "sensor": "Cartosat-2S",
+          "modality": "optical-MX",
+          "bands": [
+            "blue",
+            "green",
+            "red",
+            "nir"
+          ],
+          "pixel_m": 2.0,
+          "width": 512,
+          "height": 512,
+          "date": "2024-02-11",
+          "crs": "EPSG:32643",
+          "sar_band": null,
+          "polarisation": [],
+          "cloud_pct": 0.0,
+          "cloud_mask_path": null,
+          "hand_mask_path": null
+        },
+        {
+          "image_id": "img_1",
+          "role": "T2",
+          "file": "pair_T2.tif",
+          "sha1": "ab1269d741134c0c1013c27c9dc1c408e1e76918",
+          "prepared_path": "ingest/img_1.tif",
+          "rgb8_path": "ingest/img_1_rgb8.tif",
+          "sensor": "Cartosat-2S",
+          "modality": "optical-MX",
+          "bands": [
+            "blue",
+            "green",
+            "red",
+            "nir"
+          ],
+          "pixel_m": 2.0,
+          "width": 512,
+          "height": 512,
+          "date": "2025-02-08",
+          "crs": "EPSG:32643",
+          "sar_band": null,
+          "polarisation": [],
+          "cloud_pct": 0.0,
+          "cloud_mask_path": null,
+          "hand_mask_path": null
+        }
+      ],
+      "pair": {
+        "kind": "bi-temporal",
+        "overlap_pct": 100.0,
+        "same_crs": true,
+        "ref_image": "img_0"
+      },
+      "can_compute": {
+        "NDVI": true,
+        "NDWI": true,
+        "NDBI": false
+      },
+      "notes": [
+        "NDBI skipped: no SWIR band on Cartosat-2S",
+        "HAND not needed: no radar input"
+      ]
+    },
+    "plan": [
+      {
+        "step_id": "s1",
+        "tool": "detector",
+        "inputs": {
+          "image": "T1"
+        },
+        "params": {
+          "prompt": "water body",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        }
+      },
+      {
+        "step_id": "s2",
+        "tool": "select_region",
+        "inputs": {
+          "detections": "$s1",
+          "image": "T1"
+        },
+        "params": {
+          "hint": "south",
+          "buffer_m": 50.0,
+          "use_water": true
+        }
+      },
+      {
+        "step_id": "s3",
+        "tool": "water_mask",
+        "inputs": {
+          "image": "T1",
+          "region": "$s2.masks.region"
+        },
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        }
+      },
+      {
+        "step_id": "s4",
+        "tool": "water_mask",
+        "inputs": {
+          "image": "T2",
+          "region": "$s2.masks.region"
+        },
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        }
+      },
+      {
+        "step_id": "s5",
+        "tool": "change_map",
+        "inputs": {
+          "t1": "T1",
+          "t2": "T2",
+          "region": "$s2.masks.buffered"
+        },
+        "params": {
+          "threshold": 0.5
+        }
+      },
+      {
+        "step_id": "s6",
+        "tool": "detector",
+        "inputs": {
+          "image": "T2",
+          "region": "$s2.masks.buffered"
+        },
+        "params": {
+          "prompt": "building",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        }
+      },
+      {
+        "step_id": "s7",
+        "tool": "detector",
+        "inputs": {
+          "image": "T1",
+          "region": "$s2.masks.buffered"
+        },
+        "params": {
+          "prompt": "building",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        }
+      },
+      {
+        "step_id": "s8",
+        "tool": "rs_vlm",
+        "inputs": {
+          "t1": "T1",
+          "t2": "T2",
+          "region": "$s2.masks.region"
+        },
+        "params": {
+          "mode": "describe_change",
+          "question": "Has anything been built on the southern lake shore since last year?",
+          "max_new_tokens": 64
+        }
+      }
+    ],
+    "steps": [
+      {
+        "step_id": "s1",
+        "tool": "detector",
+        "model_id": "IDEA-Research/grounding-dino-base",
+        "params": {
+          "prompt": "water body",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        },
+        "status": "ok",
+        "summary": "1 detection >= 0.35",
+        "runtime_s": 1.9,
+        "source": "fake"
+      },
+      {
+        "step_id": "s2",
+        "tool": "select_region",
+        "model_id": "rule-based-region-select",
+        "params": {
+          "hint": "south",
+          "buffer_m": 50.0,
+          "use_water": true
+        },
+        "status": "ok",
+        "summary": "southern water body selected, 105,412 m²",
+        "runtime_s": 0.1,
+        "source": "fake"
+      },
+      {
+        "step_id": "s3",
+        "tool": "water_mask",
+        "model_id": "ndwi-otsu",
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        },
+        "status": "ok",
+        "summary": "water 105,412 m² (T1)",
+        "runtime_s": 0.3,
+        "source": "fake"
+      },
+      {
+        "step_id": "s4",
+        "tool": "water_mask",
+        "model_id": "ndwi-otsu",
+        "params": {
+          "index": "NDWI",
+          "exclude_cloud": true
+        },
+        "status": "ok",
+        "summary": "water 69,020 m² (T2)",
+        "runtime_s": 0.3,
+        "source": "fake"
+      },
+      {
+        "step_id": "s5",
+        "tool": "change_map",
+        "model_id": "changeformer-levir-cd",
+        "params": {
+          "threshold": 0.5
+        },
+        "status": "ok",
+        "summary": "1,408 changed pixels in the shoreline zone",
+        "runtime_s": 2.4,
+        "source": "fake"
+      },
+      {
+        "step_id": "s6",
+        "tool": "detector",
+        "model_id": "IDEA-Research/grounding-dino-base",
+        "params": {
+          "prompt": "building",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        },
+        "status": "ok",
+        "summary": "7 detections >= 0.35 in region",
+        "runtime_s": 1.7,
+        "source": "fake"
+      },
+      {
+        "step_id": "s7",
+        "tool": "detector",
+        "model_id": "IDEA-Research/grounding-dino-base",
+        "params": {
+          "prompt": "building",
+          "box_threshold": 0.35,
+          "text_threshold": 0.25,
+          "nms_iou": 0.5,
+          "max_detections": 500,
+          "tile_px": 1024
+        },
+        "status": "ok",
+        "summary": "1 detection >= 0.35 in region",
+        "runtime_s": 1.6,
+        "source": "fake"
+      },
+      {
+        "step_id": "s8",
+        "tool": "rs_vlm",
+        "model_id": "geochat-7b-4bit+lora-v1",
+        "params": {
+          "mode": "describe_change",
+          "question": "Has anything been built on the southern lake shore since last year?",
+          "max_new_tokens": 64
+        },
+        "status": "ok",
+        "summary": "described the change",
+        "runtime_s": 3.1,
+        "source": "fake"
+      }
+    ],
+    "skipped": [
+      "NDBI skipped: no SWIR band on Cartosat-2S"
+    ],
+    "adapter_id": "lora-v1",
+    "versions": {
+      "git": "stub",
+      "contract": "1.0",
+      "rs_vlm": "geochat-7b-4bit+lora-v1",
+      "detector": "IDEA-Research/grounding-dino-base",
+      "change_map": "changeformer-levir-cd"
+    }
+  },
+  "layers": [],
+  "downloads": {}
+}

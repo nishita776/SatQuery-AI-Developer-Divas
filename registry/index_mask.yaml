@@ -1,0 +1,12 @@
+tool: index_mask
+owner: P2
+impl: satquery.physics.tools:IndexMask
+model_id: spectral-index-otsu
+does: [VQA, CAPTION, OPTICAL_SAR]
+needs: [optical-MX]
+gives: [index_mask]
+native_pixel_m: null
+params:
+  index: {type: enum, default: NDVI, choices: [NDVI, NDWI]}
+  exclude_cloud: {type: bool, default: true}
+fallback: null
