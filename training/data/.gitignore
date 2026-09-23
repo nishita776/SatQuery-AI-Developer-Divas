@@ -1,0 +1,3 @@
+# Downloaded imagery and the merged JSONLs: regenerate with
+#   python training/data/download_*.py && python training/prepare.py
+raw/
