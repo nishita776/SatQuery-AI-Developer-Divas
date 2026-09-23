@@ -73,10 +73,20 @@ def test_python_version_matches_kaggle() -> None:
 @pytest.mark.skipif(
     EXPECT_GPU, reason="Kaggle runs the image's system interpreter, not a venv"
 )
-def test_running_inside_a_virtualenv() -> None:
-    """master F3.2: everyone works in a virtual environment."""
-    assert sys.prefix != sys.base_prefix, (
-        "not running inside a virtual environment; activate the venv first"
+def test_running_in_an_isolated_environment() -> None:
+    """master F3.2: nobody installs into a system Python.
+
+    A venv satisfies this, and so does a conda environment inside a per-user
+    container (the college H100 box). Set SATQUERY_ALLOW_SYSTEM_PYTHON=1 to
+    opt out deliberately.
+    """
+    isolated = (
+        sys.prefix != sys.base_prefix
+        or bool(os.environ.get("CONDA_PREFIX"))
+        or os.environ.get("SATQUERY_ALLOW_SYSTEM_PYTHON") == "1"
+    )
+    assert isolated, (
+        "running in a system Python; create a venv or activate a conda env first"
     )
 
 
