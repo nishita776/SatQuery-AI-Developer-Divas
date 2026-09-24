@@ -1,31 +1,0 @@
-nohup: ignoring input
-/opt/conda/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
-  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
-=== tokenizer ===
-[transformers] You are using a model of type `internvl_chat` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
-  IMG_CONTEXT id = 32013, pad = '</s>'
-
-=== model ===
-[transformers] Missing validation function in 'RotaryEmbeddingConfigMixin' for 'rope_type'='su'
-Loading weights:   0%|          | 0/541 [00:00<?, ?it/s]Loading weights:   0%|          | 2/541 [00:00<00:28, 18.86it/s]Loading weights:   4%|▎         | 20/541 [00:00<00:04, 107.56it/s]Loading weights:   7%|▋         | 38/541 [00:00<00:03, 136.81it/s]Loading weights:  10%|█         | 55/541 [00:00<00:03, 149.36it/s]Loading weights:  13%|█▎        | 71/541 [00:00<00:03, 151.37it/s]Loading weights:  16%|█▋        | 89/541 [00:00<00:02, 156.97it/s]Loading weights:  20%|█▉        | 107/541 [00:00<00:02, 160.62it/s]Loading weights:  23%|██▎       | 125/541 [00:00<00:02, 161.20it/s]Loading weights:  26%|██▋       | 143/541 [00:00<00:02, 164.00it/s]Loading weights:  30%|██▉       | 161/541 [00:01<00:02, 165.73it/s]Loading weights:  33%|███▎      | 179/541 [00:01<00:02, 167.72it/s]Loading weights:  41%|████      | 223/541 [00:01<00:01, 246.81it/s]Loading weights:  85%|████████▌ | 461/541 [00:01<00:00, 850.12it/s]Loading weights: 100%|██████████| 541/541 [00:01<00:00, 383.58it/s]
-  loaded, 2.14 GiB, image_size=448
-trainable params: 25,165,824 || all params: 3,846,067,200 || trainable%: 0.6543
-  trainable 25.2M / 2149.0M (1.171%)
-
-=== data ===
-  27000 samples
-  sample 12623 task=caption     images=(1, 3, 448, 448) len=(1024,) supervised=9
-  sample 24836 task=caption     images=(1, 3, 448, 448) len=(1024,) supervised=19
-  sample 13781 task=vqa         images=(1, 3, 448, 448) len=(1024,) supervised=2
-  sample  1326 task=vqa         images=(1, 3, 448, 448) len=(1024,) supervised=5
-  sample  8484 task=caption     images=(1, 3, 448, 448) len=(1024,) supervised=104
-  sample 16753 task=vqa         images=(1, 3, 448, 448) len=(1024,) supervised=2
-  TrainingArguments: dropping unsupported ['warmup_ratio']
-
-=== training ===
-  0%|          | 0/1688 [00:00<?, ?it/s][transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
-/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py:1548: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
-  return fn(*args, **kwargs)
-/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py:1548: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
-  return fn(*args, **kwargs)
-  0%|          | 1/1688 [00:09<4:37:48,  9.88s/it]  0%|          | 2/1688 [00:17<3:57:30,  8.45s/it]  0%|          | 3/1688 [00:24<3:42:04,  7.91s/it]

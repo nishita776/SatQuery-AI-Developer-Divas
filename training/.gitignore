@@ -1,3 +1,4 @@
 train.jsonl
 heldout.jsonl
 adapters/
+train.log

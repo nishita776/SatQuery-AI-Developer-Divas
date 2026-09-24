@@ -29,6 +29,8 @@ SOURCES = {
     "rsvqa": ("dmarsili/RSVQA-LR-2k + RSVQA-HR-2k", "VQA, 2k curated subsets"),
     "cdvqa": ("ljx620/CDVQA", "two-image change VQA"),
     "bigearthnet": ("danielz01/BigEarthNet-S2-v1.0 (s2-rgb)", "land-cover vocabulary"),
+    "bigearthnet_s1": ("torchgeo/bigearthnet V2/S1 + BigEarthNet.txt",
+                       "Sentinel-1 radar VQA, real annotations joined on s1_name"),
 }
 
 
@@ -143,6 +145,10 @@ def main(holdout):
            "  controller never asks rs_vlm for boxes or counts. That is the detector.",
            "- **RSVQA has no official Hub mirror.** The curated 2k subsets were used;",
            "  only a `validation` split exists, hence 4000 rather than 5000.",
+           "- **Sentinel-1 is in the mix.** BigEarthNet S1 patches (VH/VV float)",
+           "  are composited to false colour R=VV, G=VH, B=VV-VH, each stretched",
+           "  2-98% to 8-bit, and joined to BigEarthNet.txt on `s1_name` so the",
+           "  radar samples carry real annotations rather than generated text.",
            "- **Prompts come from `satquery/models/rs_vlm/prompts.py`**, shared with",
            "  inference, so training and run_real() cannot drift apart.", ""]
     (OUT / "DATA.md").write_text("\n".join(md))
