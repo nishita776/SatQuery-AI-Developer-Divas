@@ -20,15 +20,24 @@ OUT = Path("training/data/raw/bigearthnet")
 SEED = 42
 
 CAPTION_TEMPLATES = [
-    "A Sentinel-2 satellite image showing {}.",
-    "This satellite image contains {}.",
-    "An aerial view of {}.",
-    "Land cover in this scene: {}.",
+    "A satellite image showing {}.",
+    "This scene mainly contains {}.",
+    "An aerial view dominated by {}.",
+    "The land cover here is {}.",
+    "Sentinel-2 imagery of {}.",
+    "The area is largely {}.",
+    "Overhead imagery of {}.",
+    "This region is covered by {}.",
+    "A remote-sensing image of {}.",
+    "The dominant land cover is {}.",
 ]
 QUESTIONS = [
     "What land cover types are present in this image?",
-    "Describe the land cover visible in this satellite image.",
-    "Which land cover classes can you identify here?",
+    "Describe the land cover visible here.",
+    "Which land cover classes can you identify?",
+    "What is the dominant land cover in this scene?",
+    "What kind of terrain does this image show?",
+    "List the land cover types in this satellite image.",
 ]
 
 
@@ -83,5 +92,5 @@ def main(n_patches):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--n-patches", type=int, default=5000)
+    ap.add_argument("--n-patches", type=int, default=10000)
     main(ap.parse_args().n_patches)

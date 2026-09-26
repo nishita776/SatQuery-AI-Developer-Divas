@@ -62,6 +62,15 @@ class AdapterTrainer(Trainer):
         if tok is not None:
             tok.save_pretrained(out)
         print(f"  checkpoint -> {out}", flush=True)
+        repo = os.environ.get("SATQUERY_HF_ADAPTER_REPO")
+        if repo:
+            try:
+                from huggingface_hub import upload_folder
+                upload_folder(repo_id=repo, folder_path=str(out), repo_type="model",
+                              commit_message=f"checkpoint {out.name}")
+                print(f"  backed up to HF: {repo}", flush=True)
+            except Exception as e:
+                print(f"  HF upload failed (kept local): {e}", flush=True)
 
 
 def load_model(image_size, four_bit=True):
@@ -172,6 +181,12 @@ def main(a):
     print("\n=== data ===", flush=True)
     ds = SatQueryDataset("training/train.jsonl", tok, model.num_image_token,
                          image_size, a.max_len)
+    eval_ds = None
+    if Path("training/heldout.jsonl").exists() and not a.smoke:
+        eval_ds = SatQueryDataset("training/heldout.jsonl", tok, model.num_image_token,
+                                  image_size, a.max_len)
+        eval_ds.rows = eval_ds.rows[:300]
+        print(f"  eval set: {len(eval_ds)} held-out samples", flush=True)
     if a.smoke:
         ds.rows = ds.rows[:64]
     print(f"  {len(ds)} samples", flush=True)
@@ -195,6 +210,9 @@ def main(a):
         bf16=True,
         logging_steps=a.log_every,
         save_steps=500,
+        eval_strategy="steps" if not a.smoke else "no",
+        eval_steps=200,
+        per_device_eval_batch_size=2,
         save_total_limit=3,
         report_to=[],
         # InternVLChatModel does not declare supports_gradient_checkpointing,
@@ -218,6 +236,7 @@ def main(a):
     model._hf_peft_config_loaded = True
 
     trainer = AdapterTrainer(model=model, args=args, train_dataset=ds,
+                             eval_dataset=eval_ds,
                       data_collator=lambda b: collate(b, tok.pad_token_id))
     trainer._satquery_tokenizer = tok
 

@@ -34,6 +34,8 @@ def parse(item):
     if task is None:
         return None
     q = TAG.sub("", raw).replace("<image>", "").strip()
+    q = re.sub(r"^\s*The question\s+(.*?)\s+can be answered using the image\.?\s*"
+               r"A short answer is\.?\s*$", r"\1", q, flags=re.I | re.S).strip()
     a = str(gpt.get("value", "")).strip()
     return (task, q, a) if a else None
 
