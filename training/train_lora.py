@@ -16,6 +16,8 @@ faster and more stable for LoRA.
 
 from __future__ import annotations
 
+import os
+
 import argparse, json, sys, types
 from copy import deepcopy
 from pathlib import Path
@@ -209,9 +211,9 @@ def main(a):
         warmup_ratio=0.03,
         bf16=True,
         logging_steps=a.log_every,
-        save_steps=500,
+        save_steps=250,
         eval_strategy="steps" if not a.smoke else "no",
-        eval_steps=200,
+        eval_steps=250,
         per_device_eval_batch_size=2,
         save_total_limit=3,
         report_to=[],
