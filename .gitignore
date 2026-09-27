@@ -15,3 +15,7 @@ web/node_modules/
 *.aux.xml
 venv/ 
 
+
+.ipynb_checkpoints/
+EarthDial/
+eval/geommbench_images/
