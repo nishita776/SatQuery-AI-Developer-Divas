@@ -1,0 +1,108 @@
+{
+  "benchmark": "VRSBench-VQA",
+  "n": 300,
+  "base_acc": 49.0,
+  "lora_acc": 64.0,
+  "delta": 15.0,
+  "leakage": 0,
+  "base_examples": [
+    [
+      "What is the main man-made structure visible in the image?",
+      "harbors",
+      "port",
+      false
+    ],
+    [
+      "Are there roads visible in the image?",
+      "yes",
+      "Yes",
+      true
+    ],
+    [
+      "Are there any storage units visible near the baseball field?",
+      "yes",
+      "Yes",
+      true
+    ],
+    [
+      "Is the airplane located on a tarmac?",
+      "Yes",
+      "No",
+      false
+    ],
+    [
+      "Are the vehicles parked in an orderly manner?",
+      "Yes",
+      "No",
+      false
+    ],
+    [
+      "What is the main structure present in the image?",
+      "Basketball courts",
+      "basketball court",
+      false
+    ],
+    [
+      "What is the object category of the features found along the waterfront?",
+      "harbor",
+      "ship",
+      false
+    ],
+    [
+      "What is the position of the other windmill in relation to the image frame?",
+      "Bottom-right",
+      "center",
+      false
+    ]
+  ],
+  "lora_examples": [
+    [
+      "What is the main man-made structure visible in the image?",
+      "harbors",
+      "harbor",
+      false
+    ],
+    [
+      "Are there roads visible in the image?",
+      "yes",
+      "Yes",
+      true
+    ],
+    [
+      "Are there any storage units visible near the baseball field?",
+      "yes",
+      "Yes",
+      true
+    ],
+    [
+      "Is the airplane located on a tarmac?",
+      "Yes",
+      "Yes",
+      true
+    ],
+    [
+      "Are the vehicles parked in an orderly manner?",
+      "Yes",
+      "Yes",
+      true
+    ],
+    [
+      "What is the main structure present in the image?",
+      "Basketball courts",
+      "Basketball court",
+      false
+    ],
+    [
+      "What is the object category of the features found along the waterfront?",
+      "harbor",
+      "harbor",
+      true
+    ],
+    [
+      "What is the position of the other windmill in relation to the image frame?",
+      "Bottom-right",
+      "bottom-right",
+      true
+    ]
+  ]
+}
